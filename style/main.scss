@@ -1,0 +1,124 @@
+// Import Global Rules
+@import "global-rules";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-bg);
+  // Flex
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container > .card {
+  width: var(--card-width);
+  padding: 25px;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: var(--card-bg);
+  box-shadow: -5px 30px 5px var(--main-bg), 5px 30px 5px var(--main-bg);
+
+  > .image-holder {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      border-radius: inherit;
+      background-color: var(--cyan);
+      transition: var(--transition-duration);
+    }
+    &:hover {
+      &::before {
+        opacity: 0.5;
+        visibility: visible;
+      }
+      > img.viewer {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    > img {
+      &.main {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+      }
+      &.viewer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--transition-duration),
+          visibility var(--transition-duration);
+      }
+    }
+  }
+  > .name {
+    margin-top: 25px;
+  }
+  > .desc {
+    margin-top: 15px;
+    color: var(--soft-blue);
+    line-height: var(--line-height);
+    font: {
+      size: var(--para-size);
+      weight: var(--font-light);
+      family: var(--font-family);
+    }
+  }
+  > .info {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    // Flex
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > * {
+      display: flex;
+      align-items: center;
+
+      > img {
+        margin-right: 10px;
+      }
+    }
+    > .eth {
+      color: var(--cyan);
+    }
+    > .days {
+      color: var(--soft-blue);
+    }
+  }
+  > .avatar {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+
+    > img {
+      width: 30px;
+      height: 30px;
+      padding: 1px;
+      margin-right: 15px;
+      border-radius: 50%;
+      background: var(--white);
+    }
+    > p {
+      color: var(--soft-blue);
+
+      a {
+        font-weight: var(--font-light);
+      }
+    }
+  }
+}

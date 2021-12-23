@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --card-width: 375px;
+  --transition-duration: 0.3s;
+  /* Font */
+  --font-family: "Outfit", sans-serif;
+  --font-light: 300;
+  --font-bold: 600;
+  --para-size: 18px;
+  --line-height: 1.6;
+  /* Primary Colors */
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  /* Netural Colors */
+  --white: hsl(0, 0%, 100%);
+  --line: hsl(215, 32%, 27%);
+  --main-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+  -webkit-transition: color var(--transition-duration);
+  transition: color var(--transition-duration);
+}
+
+a:hover {
+  color: var(--cyan);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container > .card {
+  width: var(--card-width);
+  padding: 25px;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: var(--card-bg);
+  -webkit-box-shadow: -5px 30px 5px var(--main-bg), 5px 30px 5px var(--main-bg);
+          box-shadow: -5px 30px 5px var(--main-bg), 5px 30px 5px var(--main-bg);
+}
+
+.container > .card > .image-holder {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.container > .card > .image-holder::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: inherit;
+  background-color: var(--cyan);
+  -webkit-transition: var(--transition-duration);
+  transition: var(--transition-duration);
+}
+
+.container > .card > .image-holder:hover::before {
+  opacity: 0.5;
+  visibility: visible;
+}
+
+.container > .card > .image-holder:hover > img.viewer {
+  opacity: 1;
+  visibility: visible;
+}
+
+.container > .card > .image-holder > img.main {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.container > .card > .image-holder > img.viewer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity var(--transition-duration), visibility var(--transition-duration);
+  transition: opacity var(--transition-duration), visibility var(--transition-duration);
+}
+
+.container > .card > .name {
+  margin-top: 25px;
+}
+
+.container > .card > .desc {
+  margin-top: 15px;
+  color: var(--soft-blue);
+  line-height: var(--line-height);
+  font-size: var(--para-size);
+  font-weight: var(--font-light);
+  font-family: var(--font-family);
+}
+
+.container > .card > .info {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container > .card > .info > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container > .card > .info > * > img {
+  margin-right: 10px;
+}
+
+.container > .card > .info > .eth {
+  color: var(--cyan);
+}
+
+.container > .card > .info > .days {
+  color: var(--soft-blue);
+}
+
+.container > .card > .avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15px;
+}
+
+.container > .card > .avatar > img {
+  width: 30px;
+  height: 30px;
+  padding: 1px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.container > .card > .avatar > p {
+  color: var(--soft-blue);
+}
+
+.container > .card > .avatar > p a {
+  font-weight: var(--font-light);
+}
+/*# sourceMappingURL=main.css.map */
